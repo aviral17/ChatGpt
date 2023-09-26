@@ -1,0 +1,4 @@
+1) Use OpenAI API Rapid API
+2) When chatGPT is thinking, input submit button must be disabled, however there must be an option to stop the response in between
+3) Also add file/screenshot upload option link there, and chatgpt will read via link, so convert the screenshot into link or BASE64 best way hashing
+4) 

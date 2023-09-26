@@ -1,3 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* html,
+body {
+  height: 100%;
+} */
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; */
+/* font-family: "Poppins", sans-serif; */
+/* scroll-behavior: smooth;
+  color-scheme: dark;
+} */
+
+/* svg Circle classes */
+
+.sidebar_mobile {
+  transform: translateX(100%);
+  z-index: 9999px;
+}
+
+.sidebar_mobile.open {
+  animation: slide-in 0.7s ease-in-out forwards;
+}
+
+/* @keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+} */
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* .closing {
+  animation: slide-out 0.9s ease-in-out forwards;
+} */
+
+.sidebar_mobile:not(.open) {
+  animation: slide-out 0.3s ease-in-out forwards;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.overlay {
+  /* z-index: 1; */
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay.visible {
+  background-color: rgba(15, 5, 5, 0.467);
+  opacity: 0.2;
+}
+
+.mob-sidebar {
+  z-index: 10000;
+}
+
+.svg-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.svg-wrapper:hover #ball {
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+
+.snipcss-FiL5I #ball {
+  transform: rotate(10deg);
+  transform-origin: center;
+  transition: transform 0.5s;
+  /* Extra edded below */
+}
+
+.svg-wrapper svg {
+  display: block;
+  margin: auto;
+  height: 107%;
+  width: 101%;
+  overflow: visible;
+}
+
+/* -------------- inside Message.tsx ------------------ */
+.text__style {
+  color: rgba(216, 239, 238, 0.822);
+  font-family: "Poppins", sans-serif;
+}
+
+.link_url {
+  display: inline-block;
+  padding: 4px;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  background-color: #232121;
+  color: white;
+}
+
+/* -------------- inside chatinput ------------------ */
+
+.inp-box:hover {
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.132); */
+  box-shadow: 0px 0px 10px rgba(25, 19, 19, 0.851);
+}
+
+.inp-box {
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.132); */
+  box-shadow: 0px 0px 10px rgba(53, 47, 47, 0.851);
+}
+
+.inp-box > form > textarea::placeholder {
+  color: rgb(82, 122, 134);
+  /* font-weight: 500; */
+  font-family: "Roboto Mono", monospace;
+}
+
+/* -------------------------------------------------- */
+
+/* ----------------- inside chatrow of sidebar --------------- */
+
+.txtshadow {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(to right, black 80%, transparent);
+}
+/* black 60% means, its gonna start from the position 60% of the text */
+/* ----------------------------------------------------------- */
+
+/*------------------------------------- *********  Sidebar ******------------------------------------------- */
+
+.user_expand {
+  -webkit-animation: user_expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: user_expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@-webkit-keyframes user_expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes user_expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.username_text {
+  -webkit-animation: username_text 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: username_text 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes username_text {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes username_text {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.shadow-logout:hover {
+  filter: drop-shadow(10px 10px 10px rgb(56, 3, 3));
+}
+
+/* ****** */
+
+/* #030a20 */
+
+pre {
+  background-color: #030a20 !important;
+  /* padding: 0.5rem; */
+  border-radius: 8px;
+}
+
+.code_box {
+  width: 600px;
+}
+
+code {
+  font-size: 15px;
+}
+
+/* Customize scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  /* background: #f1f1f1; */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #858585;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@layer components {
+  .infoText {
+    @apply p-4 bg-gray-700/50 rounded-lg max-w-[300px];
+  }
+  /* 700/70 or 700/50 --> 70 or 50 means transparency */
+  /* removed items-center justify-center px-5 text-sm from below chatrow */
+  .chatRow {
+    @apply rounded-lg px-2 py-2.5 text-xs flex items-center  space-x-2 hover:bg-gray-700/70 cursor-pointer text-gray-300 transition-all duration-200 ease-out;
+  }
+}
+
+/* ------------- Inside Chat.tsx --------------------------------------------- */
+
+.loading_msg {
+  animation: float 0.9s ease-in-out infinite;
+  font-family: "Nunito", sans-serif;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* --------------------------------------------------------------------------- */
+
+/* ------------- Inside Nav.tsx --------------------------------------------- */
+
+.menu_icon_background {
+  background-color: rgba(20, 23, 32, 0.618);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* --------------------------------------------------------------------------- */

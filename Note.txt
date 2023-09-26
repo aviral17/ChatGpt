@@ -1,0 +1,151 @@
+#Installing and Setting Firebase tools for Setting up Firebase Host for Dynamic Links url shortener
+
+A) npm i firebase-tools -D  ---------> 
+1) To login -->  node_modules/.bin/firebase login
+2) To add another account ----> node_modules/.bin/firebase login:add another@email.com
+3) To switch between accounts ----> node_modules/.bin/firebase login:use another@email.com
+
+B) node_modules/.bin/firebase init hosting -----> ready -> use existing project if there -> any name like I given "out" (Next js will build the site and export it to "out" folder) -> Yes (for react,vue,etc) but for Static site -- No  --> No for github as of now
+
+*****************************  Serving Locally with Emulator Suite ********************************
+
+A) node_modules/.bin/firebase init emulators --> y  ---> Hosting Emulator  ---> any port like I chosen (5033) -------> yes -------> use default for the rest  (Enter all rest)
+
+*****************************  Deploying to Firebase Hosting ********************************
+
+A) node_modules/.bin/firebase deploy --only hosting
+
+
+RESULT --->  Project Console: https://console.firebase.google.com/project/chatgpt-messenger-yt-1d977/overview
+Hosting URL: https://chatgpt-messenger-yt-1d977.web.app
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+We have installed  Next js through tailwind Css v2 instead of latest tailwind (& next js) version. After that, we are converting that into Next js 13 way through the following steps.
+
+1) Inside next.config.js --> insert/add  ` experimental: {
+    appDir: true,
+  }, `, as `app` dir in next js is reserved name    ----------> https://nextjs.org/docs/messages/experimental-app-dir-config
+
+2) Creating `app` directory and adding page.tsx file in it
+ Delete `index.tsx` from pages folder
+
+ Run -- npm run dev -- again   -> allow
+
+3) It showing contents of page.tsx inside app folder and also created 2 additional files named -- head.tsx and layout.tsx 
+4) Copying -globals.css- of tailwind css from _app.tsx to layout.tsx  ----> layout.tsx contains layout of our app
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1) Installing heroIcons (of tailwind css) -----> https://github.com/tailwindlabs/heroicons   -----> npm install @heroicons/react
+
+*2) Here, we are creating our own class instead of extending like in tailwind.config.js like fontFamily: {xyz....}, thats why we are using styles/globals.css where we are defining our own tailwind components, for more, Refer to ----->  https://dev.to/developeraspire/creating-customized-utility-and-components-classes-in-tailwindcss-2626 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1) Install Next-Auth.js  ----> npm install next-auth   ----> https://next-auth.js.org/getting-started/example
+2) A) Go to FireBase --> console ---> Build(Authentication) ---> Get started  ---> Google (Enable) ---> set Email and Save 
+   B) Edit Google configuration ---> under Web SDK ---> copy Google ID and Google Secret and paste it in `.env.local` of the app
+      NOTE that --> in this new Next JS 13, we are not using NEXT_PUBLIC_GOOGLE_ID or NEXT_PUBLIC_.....blah..blah.. instead we simply use the names like GOOGLE_ID in this server
+   C) pages/api/auth/[...nextauth].ts ---> paste code for Google Provider from next-auth.js.org site 
+   D) For SessionProvider, refer to Session.txt
+
+3) **** NOTE **** ---> that for using <Image /> in next js, we need to configure it in next.config.js ---> domains ---> ['<image host site>'], and restart the server   
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Google Sign in in Login.tsx --->
+
+1) Go to Google Cloud ---> console ---> select Ur Project -----> Api & Services ----> Credentials ---> Under OAuth 2.0 ---> click 1st Web client 
+2) Under Authorized Javascript origins ---> Add URIs 4 ---> http://localhost:3000
+3) Under Authorized redirect URIs ---> Add URIs 2.   Now to get request ID, head over to localhost:3000 and click sign In and see Request ID error.  Copy that same request ID in error details starting with `` http:\\... `` and paste it in URIs 2 and save
+4) If we login in this time, We can logout by going to console ---> Application ---> clear session/local storage
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+using firebase after google login signin auth  
+FIREBASE --->
+
+1) going to console.firebase.google.com/........
+2) Under Build ---> Firestore Database
+3) Create Database   ---> Start in test mode as of now and later on choose production mode ----> choose country and Enable
+4) install firebase ---->  npm i firebase
+
+A) 1) For firebase config ---> Go to project settings(in Project Overview sidebar) in Firebase console 
+   2) Click  </>  ---> chatgpt-messenger-yt  ----> Register App
+   3) Copy  all the contents and paste it in firebase.ts
+B) For chats ---> We make a folder chat/[id]/page.tsx instead of index.jsx as we used to do in React js as per newChat.tsx router in app folder
+
+C) For realtime access to FireBase ---> install react-firebase-hooks ----> npm i --save react-firebase-hooks
+// https://www.npmjs.com/package/react-firebase-hooks
+// Cloud Firestore hooks from the same site below ---> https://github.com/csfrequency/react-firebase-hooks/tree/09bf06b28c82b4c3c1beabb1b32a8007232ed045/firestore
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+REACT HOT TOAST ->   https://react-hot-toast.com/
+
+A) Install ---->  npm install react-hot-toast
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Installing openai library after creating lib folder and creating files --------------->   npm i openai
+
+A)  Copy Open AI API secret key  and paste it in .env.local   DOC  link -->    https://platform.openai.com/docs/api-reference/authentication
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Setting up firebase admin  ----> firebaseAdmin.ts   ----> npm i firebase-admin
+
+A) Go to firestore Console ---> your Project  -----> Project Overview settings ----> Project Settings  ----> service accounts  ----> create service account  ----> Node js & Generate new private key and download ---> Take the file to chatgpt-messenger-yt and paste it as  serviceAccountKey.json
+
+B) Now to use it in .env variable, and remove line breaks   ` https://www.textfixer.com/tools/remove-line-breaks.php `, ----> Paste the entire servicekey.json code
+  and use ` Remove line breaks only ` and in .env.local ----> FIREBASE_SERVICE_ACCOUNT_KEY = ......   Without removing line breaks, that env variable won't work at all
+
+C) Also go to gitignore and pasthe the word      serviceAccountKey.json  so we don't push it to github   
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DocumentData -------->    The DocumentData type is a generic type exported by the firebase/firestore module, and it represents the data stored in a Firestore document. When you use DocumentData in your code, you're telling TypeScript that you expect the message prop to be an object that contains the fields and values stored in a Firestore document.
+
+In your Message component, you're accessing the text field of the message prop, which implies that the message prop is an object with a text field. Since DocumentData is a generic type, you can use it without defining it first because it doesn't need any specific type parameters in this case.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SWR
+
+A)  SWR is a React Hooks library for data fetching that aims to simplify the process of fetching, caching, and updating data from a remote API. In Next.js, SWR is a popular choice for client-side data fetching. It provides a number of benefits, including:
+
+Automatic caching: SWR automatically caches the data you fetch, which means that subsequent requests for the same data will be served from the cache rather than making a new request to the server. This can lead to faster load times and a better user experience.
+
+Data synchronization: SWR provides real-time data synchronization, which means that if the data changes on the server, SWR will automatically update the cache and trigger a re-render of the component that's using the data.
+
+Simple and flexible API: SWR has a simple and flexible API that's easy to use and customize to fit your specific needs.
+
+Built-in support for revalidation: SWR has built-in support for automatic revalidation, which means that it can periodically check for updates to the data and refresh the cache if necessary.
+
+Overall, SWR is a powerful tool for client-side data fetching that can greatly simplify the process of working with remote data in your Next.js applications.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+A) HTTP/HTTPS  Link convert Regex -------->
+
+The replace method is being used with a regular expression to find URLs in the formattedText string. The regular expression used is /(https?:\/\/[^\s]+)/g, which matches any text that starts with http:// or https:// and continues until it encounters a whitespace character.
+
+The replace method takes two arguments: the first argument is the pattern to search for (in this case, the regular expression that matches URLs), and the second argument is the replacement value. In this case, the second argument is a function that takes the matched URL as an argument and returns a string that contains an anchor tag (<a>) with the href attribute set to the URL. This will replace the matched URL in the formattedText string with a clickable link.
+
+Here’s an example to illustrate how this works:
+
+let formattedText = "Visit https://www.example.com for more information.";
+const urlRegex = /(https?:\/\/[^\s]+)/g;
+formattedText = formattedText.replace(urlRegex, (url) => `<a href="${url}">${url}</a><br>`);
+console.log(formattedText);
+Copy
+In this example, the replace method will search for URLs in the formattedText string using the regular expression /(https?:\/\/[^\s]+)/g. It will find one match: https://www.example.com. The matched URL will be passed as an argument to the replacement function, which will return the string <a href="https://www.example.com">https://www.example.com</a><br>. This string will replace the matched URL in the formattedText string. The final value of the formattedText variable will be "Visit <a href="https://www.example.com">https://www.example.com</a><br> for more information.".
+
+
+
+
+

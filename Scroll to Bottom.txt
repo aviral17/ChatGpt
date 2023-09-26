@@ -1,0 +1,5 @@
+check web dev simplified, messaging app 2yrs back, Where he given very simple solution
+
+Link -----> https://www.youtube.com/watch?v=tBr-PybP_9c&t=17s&ab_channel=WebDevSimplified
+
+Timing: 1:19:50 , here he is showing some different method, but I've seen one method where we can simple use <div ref={userRef} /> and use this dive just after mapping }} brackets and also use useEffect where anything changes, we scroll: smooth to bottom, window.scroll: smooth
