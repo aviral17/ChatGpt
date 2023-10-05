@@ -111,8 +111,14 @@ body {
 
 /* -------------- inside Message.tsx ------------------ */
 .text__style {
-  color: rgba(216, 239, 238, 0.822);
+  /* color: rgba(216, 239, 238, 0.822); */
   font-family: "Poppins", sans-serif;
+  letter-spacing: 0.05rem;
+  word-spacing: 0.3rem;
+}
+
+.text__format {
+  line-height: 1.325rem;
 }
 
 .link_url {
@@ -120,7 +126,8 @@ body {
   padding: 4px;
   /* border: 1px solid black; */
   border-radius: 5px;
-  background-color: #232121;
+  /* background-color: #232121; */
+  background-color: #0601135b;
   color: white;
 }
 

@@ -28,9 +28,9 @@ export default async function handler(
   }
 
   //ChatGPT Query
-  // const response = await query(prompt, chatId, model); // TODO: Not reqd. for RapidAPI OpenAI API, query not reqd. and parameters are already there from req.body
+  const response = await query(prompt, chatId, model); // TODO: Not reqd. for RapidAPI OpenAI API, query not reqd. and parameters are already there from req.body
   /* ------------------------------------------------------------------------ */
-  /* **** */ const response = await rapidQuery(prompt);
+  // /* **** */ const response = await rapidQuery(prompt);
   /* ------------------------------------------------------------------------ */
 
   /* #TODO: ----------------------------------------------------------------------------------------------------------------------------------------------------------- */

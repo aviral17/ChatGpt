@@ -205,7 +205,12 @@ function ChatInput({ chatId }: Props) {
         model,
         session,
       }),
-    }).then(() => {
+    }).then((response) => {
+      response.json().then((data) => {
+        // Log the data to the console for debugging
+        console.log("SEND MESSAGE Data = ", data);
+      });
+
       // Toast notification to say successful!
 
       toast.success("ChatGPT has responded!", {

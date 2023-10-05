@@ -43,7 +43,7 @@ function Chat({ chatId }: Props) {
       return true;
     }
   });
-  console.log("MESSAGES = ", messages);
+  // console.log("MESSAGES = ", messages);
 
   useEffect(() => {
     const chatContainer = chatContainerRef.current;

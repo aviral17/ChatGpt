@@ -22,6 +22,8 @@ const query = async (prompt: string, chatId: string, model: string) => {
         `ChatGPT was unable to find an answer for that! (Error: ${err.message}) `
     );
 
+  // console.log("Response from ChatGPT = ", res);
+
   return res;
 };
 
