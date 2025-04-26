@@ -16,6 +16,7 @@ type Props = {
   id: string;
 };
 
+// updated as per latest changes
 function ChatRow({ id }: Props) {
   const pathname = usePathname();
   const router = useRouter();
