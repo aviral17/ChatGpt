@@ -1,3 +1,5 @@
+// updated as per latest changes
+
 "use client";
 import { signIn } from "next-auth/react";
 import Image from "next/image"; // we need to config it in next.config.js,,, se Note.txt
