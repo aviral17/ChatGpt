@@ -6,6 +6,7 @@ import Image from "next/image"; // we need to config it in next.config.js,,, se 
 
 import React from "react";
 
+// updated as per latest changes
 const Login = () => {
   return (
     <div className="bg-[#11a37f] h-screen flex flex-col items-center justify-center text-center">
