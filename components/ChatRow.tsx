@@ -1,3 +1,5 @@
+// updated as per latest changes
+
 import { TrashIcon } from "@heroicons/react/24/outline"; // solid or outline
 import { BsChatLeft } from "react-icons/bs";
 import { BsChatLeftText } from "react-icons/bs";
