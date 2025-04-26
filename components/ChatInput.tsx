@@ -77,6 +77,7 @@ function ChatInput({ chatId }: Props) {
     }
   }
 
+  // updated as per latest changes
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   useEffect(() => {
     if (textareaRef.current) {
