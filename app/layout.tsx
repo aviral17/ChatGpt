@@ -24,6 +24,7 @@ import { db } from "../firebase";
 import { RotatingLines } from "react-loader-spinner";
 import { Suspense } from "react";
 
+// updated as per latest changes
 export default async function RootLayout({
   children,
 }: {
