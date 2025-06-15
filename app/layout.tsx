@@ -83,7 +83,7 @@ export default async function RootLayout({
   );
 }
 
-// updated as per latest changes
+// updateddd as per latest changes
 
 // "use client";
 
