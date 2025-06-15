@@ -83,6 +83,8 @@ export default async function RootLayout({
   );
 }
 
+// updated as per latest changes
+
 // "use client";
 
 // import { SessionProvider } from "../components/SessionProvider";
