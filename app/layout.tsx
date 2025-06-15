@@ -43,6 +43,7 @@ export default async function RootLayout({
   // console.log("Session =", session);
   // console.log("chats =", chats);
   // console.log(session?.user?.email);
+  // updated as per latest changes
 
   return (
     <html>
