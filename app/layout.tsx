@@ -9,7 +9,7 @@ import Login from "../components/Login";
 import ClientProvider from "../components/ClientProvider";
 import Nav from "../components/Nav";
 
-// updated as per latest changes
+// updateddd as per latest changes
 
 // import Image from "next/image";
 // import nav1 from "../components/assets/nav2.svg";
