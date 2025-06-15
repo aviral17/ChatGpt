@@ -15,7 +15,7 @@ import Nav from "../components/Nav";
 // import nav1 from "../components/assets/nav2.svg";
 // import plus from "../components/assets/plus1.svg";
 
-// updated as per latest changes
+// updateddd as per latest changes
 
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useSession } from "next-auth/react";
