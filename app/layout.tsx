@@ -1,3 +1,5 @@
+// updated as per latest changes
+
 import { SessionProvider } from "../components/SessionProvider";
 import SideBar from "../components/SideBar";
 import { getServerSession } from "next-auth";
