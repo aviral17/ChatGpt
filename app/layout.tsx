@@ -87,7 +87,7 @@ export default async function RootLayout({
 
 // "use client";
 
-// updateddd as per latest changes
+// updateddddd as per latest changes
 // import { SessionProvider } from "../components/SessionProvider";
 // import SideBar from "../components/SideBar";
 // import { getServerSession } from "next-auth";
